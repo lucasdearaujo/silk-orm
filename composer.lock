@@ -1,0 +1,321 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "1afc5b48ee12f4ca58f4962b0ef97bf9",
+    "packages": [
+        {
+            "name": "easyframework/collections",
+            "version": "v4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/italolelis/collections.git",
+                "reference": "f9b1fc73ece7182af639b21b4e78c340a48b7e24"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/italolelis/collections/zipball/f9b1fc73ece7182af639b21b4e78c340a48b7e24",
+                "reference": "f9b1fc73ece7182af639b21b4e78c340a48b7e24",
+                "shasum": ""
+            },
+            "require": {
+                "easyframework/generics": "~2.0",
+                "symfony/property-access": "~2.6"
+            },
+            "require-dev": {
+                "php": ">=5.4.0",
+                "phpunit/phpunit": "~4.5",
+                "symfony/var-dumper": "~2.6."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Collections\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ítalo Lelis de Vietro",
+                    "email": "italolelis@lellysinformatica.com"
+                }
+            ],
+            "description": "Easy Framework Collection Component",
+            "homepage": "https://github.com/LellysInformatica/collections",
+            "keywords": [
+                "collection",
+                "easy",
+                "framework",
+                "generics"
+            ],
+            "time": "2015-02-21 11:39:03"
+        },
+        {
+            "name": "easyframework/generics",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/italolelis/generics.git",
+                "reference": "f7e8322195d6b5a6c77095afe5943b783bcbe851"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/italolelis/generics/zipball/f7e8322195d6b5a6c77095afe5943b783bcbe851",
+                "reference": "f7e8322195d6b5a6c77095afe5943b783bcbe851",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ítalo Lelis de Vietro",
+                    "email": "italolelis@lellysinformatica.com"
+                }
+            ],
+            "description": "Easy Framework Generics Component",
+            "homepage": "http://easyframework.net/",
+            "keywords": [
+                "easy",
+                "framework",
+                "generics"
+            ],
+            "time": "2014-08-26 19:03:28"
+        },
+        {
+            "name": "hamboldt/php-doc-reader",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hamboldt/php-doc-reader.git",
+                "reference": "c7ba3b2b706c7ebf3427f679423114cf786ae6b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hamboldt/php-doc-reader/zipball/c7ba3b2b706c7ebf3427f679423114cf786ae6b0",
+                "reference": "c7ba3b2b706c7ebf3427f679423114cf786ae6b0",
+                "shasum": ""
+            },
+            "require-dev": {
+                "php": ">=5.4.0",
+                "phpunit/phpunit": "4.8.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpDocReader\\": "src/PhPDocReader"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lucas A. de Araújo",
+                    "email": "lucasdearaujo88@gmail.com"
+                }
+            ],
+            "description": "Reads configurations from comments in PHP, converting them from JSON to arrays.",
+            "time": "2015-08-07 13:42:21"
+        },
+        {
+            "name": "symfony/property-access",
+            "version": "v2.7.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/PropertyAccess.git",
+                "reference": "e61e1a292c397273f654b15389600fe1d5a210de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/PropertyAccess/zipball/e61e1a292c397273f654b15389600fe1d5a210de",
+                "reference": "e61e1a292c397273f654b15389600fe1d5a210de",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\PropertyAccess\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony PropertyAccess Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "access",
+                "array",
+                "extraction",
+                "index",
+                "injection",
+                "object",
+                "property",
+                "property path",
+                "reflection"
+            ],
+            "time": "2015-07-16 12:21:55"
+        },
+        {
+            "name": "zendframework/zend-db",
+            "version": "2.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-db.git",
+                "reference": "090889f0f6e3234115952380e7218d76bcfae200"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-db/zipball/090889f0f6e3234115952380e7218d76bcfae200",
+                "reference": "090889f0f6e3234115952380e7218d76bcfae200",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.23",
+                "zendframework/zend-stdlib": "~2.5"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0",
+                "zendframework/zend-eventmanager": "~2.5",
+                "zendframework/zend-mvc": "~2.5",
+                "zendframework/zend-servicemanager": "~2.5"
+            },
+            "suggest": {
+                "zendframework/zend-eventmanager": "Zend\\EventManager component",
+                "zendframework/zend-servicemanager": "Zend\\ServiceManager component"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev",
+                    "dev-develop": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Db\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "homepage": "https://github.com/zendframework/zend-db",
+            "keywords": [
+                "db",
+                "zf2"
+            ],
+            "time": "2015-06-03 15:32:00"
+        },
+        {
+            "name": "zendframework/zend-stdlib",
+            "version": "2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-stdlib.git",
+                "reference": "a35758803fc9051ec1aff43989e679b6b451b1b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/a35758803fc9051ec1aff43989e679b6b451b1b4",
+                "reference": "a35758803fc9051ec1aff43989e679b6b451b1b4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0",
+                "zendframework/zend-config": "~2.5",
+                "zendframework/zend-eventmanager": "~2.5",
+                "zendframework/zend-filter": "~2.5",
+                "zendframework/zend-inputfilter": "~2.5",
+                "zendframework/zend-serializer": "~2.5",
+                "zendframework/zend-servicemanager": "~2.5"
+            },
+            "suggest": {
+                "zendframework/zend-eventmanager": "To support aggregate hydrator usage",
+                "zendframework/zend-filter": "To support naming strategy hydrator usage",
+                "zendframework/zend-serializer": "Zend\\Serializer component",
+                "zendframework/zend-servicemanager": "To support hydrator plugin manager usage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev",
+                    "dev-develop": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Stdlib\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "homepage": "https://github.com/zendframework/zend-stdlib",
+            "keywords": [
+                "stdlib",
+                "zf2"
+            ],
+            "time": "2015-07-21 17:08:05"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

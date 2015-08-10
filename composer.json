@@ -1,0 +1,27 @@
+{
+  "name": "hamboldt/silk-orm",
+  "description": "Object Relational Mapper for zend-db",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Lucas A. de Araújo",
+      "email": "lucasdearaujo88@gmail.com"
+    }
+  ],
+  "autoload":{
+    "psr-4": {
+      "Silk\\": "src/Silk"
+    }
+  },
+  "autoload-dev":{
+    "psr-4":{
+      "Silk\\Test\\": "test/Silk/Test"
+    }
+  },
+  "require": {
+    "hamboldt/php-doc-reader": "v1.0.0",
+    "zendframework/zend-db": "2.5.1",
+    "easyframework/collections": "v4.0.0"
+  }
+}
