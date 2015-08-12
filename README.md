@@ -12,8 +12,15 @@ em nível de arrays. Todo o resto fica com o Zend - transação de arrays com o 
 * [Configure um objeto relacionado](https://gist.github.com/hamboldt/463eab6bbb92559ee2cb)
 
 #### Instanciamento
+O exemplo abaixo deve ser seguido quando formos instanciar apenas um objeto.
 ```php
 $user = new User(1); // pelo valor da chave primária
 $user = new User(["name"=>"lucas"]); // por um where com array
 $user = new User(function(Select $select){ /* ... */ }); // Pelo select do zf2
+```
+#### Multipla seleção
+O exemplo abaixo deve ser seguido quando formos instanciar múltiplos objetos.
+```php
+$collection = User::select(["name"=>"lucas"]);
+$collection = User::select(function(Select $select){ /* ... */ });
 ```
