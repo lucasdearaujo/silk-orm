@@ -11,8 +11,6 @@ em nível de arrays. Todo o resto fica com o Zend - transação de arrays com o 
 * Configure um objeto
 * Configure um objeto relacionado
 
-E trabalhe com ele...
-
 #### Instanciamento
 ```php
 $user = new User(1); // pelo valor da chave primária
