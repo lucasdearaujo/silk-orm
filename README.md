@@ -7,9 +7,9 @@ em nível de arrays. Todo o resto fica com o Zend - transação de arrays com o 
 
 ### Como funciona
 
-* Configure um banco de dados
-* Configure um objeto
-* Configure um objeto relacionado
+* [Configure um banco de dados](https://gist.github.com/hamboldt/b873f19576623f06607a)
+* [Configure um objeto](https://gist.github.com/hamboldt/ad2ed7cf50c028b57373)
+* [Configure um objeto relacionado](https://gist.github.com/hamboldt/463eab6bbb92559ee2cb)
 
 #### Instanciamento
 ```php
