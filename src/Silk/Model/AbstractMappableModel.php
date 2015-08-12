@@ -2,6 +2,7 @@
 
 namespace Silk\Model;
 
+use Collections\ArrayList;
 use PhpDocReader\Reader;
 use Silk\Database\TableGateway;
 use Silk\Exceptions\NoDataFoundException;
@@ -121,6 +122,36 @@ abstract class AbstractMappableModel implements MappableModelInterface
     }
 
     /**
+     * Seleciona uma coleção de objetos do tipo do objeto que fora
+     * chamado. O método irá identificar qual a classe filho dessa
+     * classe atual, e instanciar um objeto do tipo da classe filho
+     * e em seguida popular ele e adicioná-lo na lista de dados.
+     *
+     * @param $where
+     * @return ArrayList
+     * @throws NoDataFoundException
+     */
+    public static function select($where)
+    {
+        $table = new TableGateway(self::getInstance());
+        $resultSet = $table->select($where);
+
+        if($resultSet->count() == 0)
+            throw new NoDataFoundException();
+
+        $list = new ArrayList();
+
+        foreach($resultSet->toArray() as $array)
+        {
+            $obj = self::getInstance();
+            Populator::populate($obj, $array);
+            $list->add($obj);
+        }
+
+        return $list;
+    }
+
+    /**
      * Insere um registro no banco de dados usando o método insert
      * do TableGateway do Zend Framework 2. O processo de inserção
      * é executado apenas depois de os dados dos objeto serem adequadamente
@@ -168,5 +199,17 @@ abstract class AbstractMappableModel implements MappableModelInterface
             return $this->tableGateway->delete(Extractor::extract($this));
         }
 
+    }
+
+    /**
+     * Retorna uma instância da classe que chamou o método.
+     *
+     * @return MappableModelInterface
+     */
+    private static function getInstance()
+    {
+        $name = get_called_class();
+        $object = new $name;
+        return $object;
     }
 }

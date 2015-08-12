@@ -1,6 +1,7 @@
 <?php
 
 namespace Silk\Exchange\Extractor;
+use Silk\Model\MappableModelInterface;
 
 /**
  * Class Processor
@@ -37,6 +38,11 @@ class Processor
         // {"alias":"nome_da_coluna"}
         if(array_key_exists('alias', $property['config'])) {
             $name = $property['config']['alias'];
+        }
+
+        // Captura a id do objeto
+        if($data instanceof MappableModelInterface){
+            $data = $data->getId();
         }
 
         $this->data[$name] = $data;

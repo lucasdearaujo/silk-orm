@@ -29,6 +29,13 @@ class User extends AbstractMappableModel
     private $password;
 
     /**
+     * @configure {"alias":"idcompany"}
+     * @configure {"type":"\Silk\Test\Company"}
+     * @var Company
+     */
+    private $company;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -75,5 +82,21 @@ class User extends AbstractMappableModel
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+
+    /**
+     * @return Company
+     */
+    public function getCompany()
+    {
+        return $this->company;
+    }
+
+    /**
+     * @param Company $company
+     */
+    public function setCompany($company)
+    {
+        $this->company = $company;
     }
 }
