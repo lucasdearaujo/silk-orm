@@ -41,3 +41,13 @@ $collection->map(function(User $user){
 });
 
 ```
+
+#### Inserindo novo registro
+
+```php
+$company = new Company();
+$company->setName("Softwerk");
+$company->save();
+echo $company->getId(); // 1
+```
+![](http://i.imgur.com/JR1UOIv.png?1)
