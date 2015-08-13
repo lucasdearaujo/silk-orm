@@ -43,6 +43,7 @@ $collection->map(function(User $user){
 ```
 
 #### Inserindo novo registro
+Quando o objeto é instanciado e não se passa nenhum valor no construtor como parâmetro ele é criado vazio, isto é, não vai ter nenhum valor, nem uma id definida para o mesmo. Quando o objeto tem um id nulo (`$company->getId() == null`) ao chamar o método _save()_ um novo registro será inserido no banco. Se ele ja tiver um id definido, o registro será atualizado.
 
 ```php
 $company = new Company();
