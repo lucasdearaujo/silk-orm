@@ -48,6 +48,20 @@ abstract class AbstractMappableModel implements MappableModelInterface
         // Constrói o objeto de acesso aos dados.
         $this->tableGateway = new TableGateway($this);
 
+        $this->populate($param);
+    }
+
+    /**
+     * Método responsável por escolher qual será a estratégia
+     * de população do objeto. De modo a permitir três modos de
+     * instanciação distintos: id, array, e select.
+     *
+     * @param $param
+     * @throws NoDataFoundException
+     * @throws NoPrimaryKeyException
+     */
+    private function populate($param)
+    {
         // Se for numérico ou string, presume-se
         // que é uma chave primária.
         if(is_numeric($param) || is_string($param))
