@@ -102,7 +102,6 @@ class User extends AbstractMappableModel
         {
             return $this->company;
         }
-
     }
 
     /**
