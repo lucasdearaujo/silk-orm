@@ -99,3 +99,12 @@ $company = new Company(1);
 $company->setName("Softwerk LTDA");
 $company->delete();
 ```
+
+##### Removendo vários registros
+Exemplo abaixo irá remover todos os objetos onde o valor da coluna `name` for igual a `Softwerk`.
+
+```php
+Company::select(['name' => 'Softwerk'])->map(function(Company $company){
+   $company->delete();
+});
+```
