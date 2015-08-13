@@ -72,7 +72,7 @@ abstract class AbstractMappableModel implements MappableModelInterface
         // Verifica se é um comando do tipo where
         // que pode ser usado diretamente como parâmetro
         // no TableGateway do Zend Framework 2.
-        else if(is_array($param) || is_callable($param) || $param instanceof Select)
+        else if(!is_null($param))
         {
             $this->populateFromWhere($param);
         }
