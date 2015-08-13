@@ -29,39 +29,59 @@ class Populator
     public static function populate(&$object, $array)
     {
         foreach((new ReflectionClass($object))->getProperties() as $property)
+            self::setProperty($object, $property, $array);
+
+        self::afterPopulate($object, $array);
+    }
+
+    /**
+     * Define o conteúdo de uma propriedade lendo as regras relacionadas
+     * a mesma, e seguindo a estratégia adequada para cada situação.
+     *
+     * @param $object
+     * @param $property
+     * @param $array
+     */
+    public static function setProperty(&$object, &$property, $array)
+    {
+        $property->setAccessible(true);
+        $configuration = new PropertyConfiguration($property);
+        $value = null;
+
+        // Se o campo for do tipo que deve ser ignorado,
+        // não meche nele...
+        if($configuration->ignore())
+            break;
+
+        // Verifica se a propriedade tem um alias e busca
+        // o valor na array
+        if($configuration->hasAlias())
         {
-            $property->setAccessible(true);
-            $configuration = new PropertyConfiguration($property);
-            $value = null;
+            $alias = $configuration->getAlias();
 
-            // Se o campo for do tipo que deve ser ignorado,
-            // não meche nele...
-            if($configuration->ignore())
-                break;
-
-            // Verifica se a propriedade tem um alias e busca
-            // o valor na array
-            if($configuration->hasAlias())
-            {
-                $alias = $configuration->getAlias();
-
-                if(array_key_exists($alias, $array))
-                    $value = $array[$alias];
-            }
-
-            // Caso não tenha nenhum alias, o script irá procurar
-            // por um valor relacionado com o nome original da propriedade.
-            else
-            {
-                $alias = $configuration->getName();
-
-                if(array_key_exists($alias, $array))
-                    $value = $array[$alias];
-            }
-
-            $property->setValue($object, $value);
+            if(array_key_exists($alias, $array))
+                $value = $array[$alias];
         }
 
+        // Caso não tenha nenhum alias, o script irá procurar
+        // por um valor relacionado com o nome original da propriedade.
+        else
+        {
+            $alias = $configuration->getName();
+
+            if(array_key_exists($alias, $array))
+                $value = $array[$alias];
+        }
+
+        $property->setValue($object, $value);
+    }
+
+    /**
+     * @param $object
+     * @param $array
+     */
+    public static function afterPopulate(&$object, $array)
+    {
         // Verifica se existe o método que trata os
         // valores após eles terem sido populados.
         // Se tiver, o executa.
