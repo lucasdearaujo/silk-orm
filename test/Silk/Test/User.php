@@ -2,6 +2,7 @@
 
 namespace Silk\Test;
 
+use Silk\Exceptions\NoDataFoundException;
 use Silk\Model\AbstractMappableModel;
 
 /**
@@ -30,7 +31,6 @@ class User extends AbstractMappableModel
 
     /**
      * @configure {"alias":"idcompany"}
-     * @configure {"type":"\Silk\Test\Company"}
      * @var Company
      */
     private $company;
@@ -89,7 +89,20 @@ class User extends AbstractMappableModel
      */
     public function getCompany()
     {
-        return $this->company;
+        try
+        {
+            $this->company = new Company($this->company);
+
+        }
+        catch(NoDataFoundException $e)
+        {
+            $this->company = new Company();
+        }
+        finally
+        {
+            return $this->company;
+        }
+
     }
 
     /**

@@ -24,6 +24,11 @@ class Company extends AbstractMappableModel
     private $name;
 
     /**
+     * @configure {"ignore":true}
+     */
+    private $ignored;
+
+    /**
      * Retorna a id da compania
      * @return int
      */

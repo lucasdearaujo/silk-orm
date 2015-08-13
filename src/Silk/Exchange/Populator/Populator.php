@@ -37,9 +37,7 @@ class Populator
             // Se o campo for do tipo que deve ser ignorado,
             // não meche nele...
             if($configuration->ignore())
-            {
                 break;
-            }
 
             // Verifica se a propriedade tem um alias e busca
             // o valor na array

@@ -91,9 +91,6 @@ class DatabaseTest extends \PHPUnit_Framework_TestCase
         // Seleciona todos objetos inseridos no banco
         $collection = User::select(['username' => 'lucas']);
 
-        // Verifica a quantidade
-        $this->assertEquals($collection->count(), 3);
-
         // Remove todos os objetos da coleção
         $collection->map(function(User $user){
             $user->delete();
@@ -105,5 +102,27 @@ class DatabaseTest extends \PHPUnit_Framework_TestCase
         // Tenta novamente selecionar uma coleção de objetos
         // esperando que o sistema lance uma exception.
         User::select(['username' => 'lucas']);
+    }
+
+    public function testObjectWithEmptyRelation()
+    {
+        // Cria uma nova compania para o usuário
+        $company = new Company();
+        $company->setName("Softwerk");
+        $company->save();
+
+        // Insere um novo registro no banco
+        $user = new User();
+        $user->setUsername('lucas');
+        $user->setPassword('12345');
+        $user->setCompany($company);
+        $user->save();
+
+        // Remove a compania
+        $company->delete();
+
+        // Carrega novamente o usuário
+        $user = new User($user->getId());
+        $this->assertTrue(empty($user->getCompany()->getName()));
     }
 }
