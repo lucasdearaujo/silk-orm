@@ -1,5 +1,7 @@
 # silk-orm
 
+[![License](https://poser.pugx.org/hamboldt/silk-orm/license)](https://packagist.org/packages/hamboldt/silk-orm) [![Total Downloads](https://poser.pugx.org/hamboldt/silk-orm/downloads)](https://packagist.org/packages/hamboldt/silk-orm) [![Latest Stable Version](https://poser.pugx.org/hamboldt/silk-orm/v/stable)](https://packagist.org/packages/hamboldt/silk-orm) [![Latest Unstable Version](https://poser.pugx.org/hamboldt/silk-orm/v/unstable)](https://packagist.org/packages/hamboldt/silk-orm)
+
 O ORM Silk (seda em inglês) é um sistema de mapeamento de objetos integrado com a estrutura do Zend Framework 2
 que foi pensado para ser prático, leve, e de fácil configuração. Ele permite transformar tabela em objetos e posteriormente
 acessar os dados utilizando o padrão de busca SQL do Zend. Em outras palavras, o papel dele é mapear seus objetos apenas
