@@ -81,7 +81,7 @@ $company->setName("Softwerk LTDA");
 $company->save();
 ```
 
-#### Atualizando múltiplos registros
+##### Atualizando múltiplos registros
 Atualiza todos os registros onde a coluna nome tiver o valor 'Softwerk'.
 
 ```php
@@ -89,4 +89,13 @@ Company::select(['name' => 'Softwerk'])->map(function(Company $company){
    $company->setName('The name has changed!');
    $company->save();
 });
+```
+
+#### Removendo um registro
+Um objeto só será removido quando o sua id estiver definida, assim como nas operações de atualização. Para remover um registro do banco de dados basta chamar o método `delete()` do objeto, assim como no exemplo abaixo.
+
+```php
+$company = new Company(1);
+$company->setName("Softwerk LTDA");
+$company->delete();
 ```
