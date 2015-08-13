@@ -42,11 +42,6 @@ class PropertyConfiguration
     private $alias;
 
     /**
-     * @var string
-     */
-    private $type;
-
-    /**
      * Constrói uma configuração
      * @param $property
      */
@@ -68,9 +63,6 @@ class PropertyConfiguration
 
         if(array_key_exists('ignoreIfNull', $config))
             $this->setIgnoreIfNull($config['ignoreIfNull']);
-
-        if(array_key_exists('type', $config))
-            $this->setType($config['type']);
     }
 
     /**
@@ -168,21 +160,5 @@ class PropertyConfiguration
     public function setAlias($alias)
     {
         $this->alias = $alias;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
     }
 }

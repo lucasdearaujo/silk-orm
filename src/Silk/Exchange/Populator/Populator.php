@@ -59,22 +59,6 @@ class Populator
                     $value = $array[$alias];
             }
 
-            // Se for uma chave de um objeto do tipo IMappableModel
-            // o mesmo será instanciado.
-            if(!empty($configuration->getType()))
-            {
-                $object = $configuration->getType();
-
-                try
-                {
-                    $value  = new $object($value);
-                }
-                catch(NoDataFoundException $e)
-                {
-                    $value  = new $object();
-                }
-            }
-
             $property->setValue($object, $value);
         }
 
