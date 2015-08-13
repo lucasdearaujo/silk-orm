@@ -20,7 +20,6 @@ em nível de arrays. Todo o resto fica com o Zend - transação de arrays com o 
 * `@configure {"ignore":true}` - Ignora a propriedade do objeto na construção das queries.
 * `@configure {"ignoreIfNull":true}` - Ignora a propriedade do objeto, apenas se nula.
 * `@configure {"alias":"somecolumn"}` -  Especifica o nome da coluna da propriedade na tabela.
-* `@configure {"type":"\My\Object"}` - Tipo do objeto instanciado usando a chave estrangeira.
 
 ### Como usar
 
