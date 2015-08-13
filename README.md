@@ -80,3 +80,13 @@ $company = new Company(function(Select $select){
 $company->setName("Softwerk LTDA");
 $company->save();
 ```
+
+#### Atualizando múltiplos registros
+Atualiza todos os registros onde a coluna nome tiver o valor 'Softwerk'.
+
+```php
+Company::select(['name' => 'Softwerk'])->map(function(Company $company){
+   $company->setName('The name has changed!');
+   $company->save();
+});
+```
