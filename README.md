@@ -64,14 +64,14 @@ $company->setName("Softwerk LTDA");
 $company->save();
 ```
 
-#### Instanciamento por array explicita
+##### Instanciamento por array explicita
 ```php
 $company = new Company(['idcompany' => 1]);
 $company->setName("Softwerk LTDA");
 $company->save();
 ```
 
-#### Instanciamento por where do ZF2
+##### Instanciamento por where do ZF2
 ```php
 $company = new Company(function(Select $select){
    $select->where->equalTo('idcompany', '1');
