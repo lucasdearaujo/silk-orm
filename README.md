@@ -49,6 +49,34 @@ Quando o objeto é instanciado e não se passa nenhum valor no construtor como p
 $company = new Company();
 $company->setName("Softwerk");
 $company->save();
+
 echo $company->getId(); // 1
 ```
 ![](http://i.imgur.com/JR1UOIv.png?1)
+
+#### Atualizando um registro
+Quando o objeto já possui uma id definida, e chamamos o método `save()`o registro cuja chave primária for a id do objeto será atualizado no banco de dados, conforme o exemplo abaixo.
+
+##### Instanciamento por chave primária
+```php
+$company = new Company(1);
+$company->setName("Softwerk LTDA");
+$company->save();
+```
+
+#### Instanciamento por array explicita
+```php
+$company = new Company(['idcompany' => 1]);
+$company->setName("Softwerk LTDA");
+$company->save();
+```
+
+#### Instanciamento por where do ZF2
+```php
+$company = new Company(function(Select $select){
+   $select->where->equalTo('idcompany', '1');
+   $select->limit(1);
+});
+$company->setName("Softwerk LTDA");
+$company->save();
+```
