@@ -13,6 +13,13 @@ em nível de arrays. Todo o resto fica com o Zend - transação de arrays com o 
 * [Configure um objeto](https://gist.github.com/hamboldt/ad2ed7cf50c028b57373)
 * [Configure um objeto relacionado](https://gist.github.com/hamboldt/463eab6bbb92559ee2cb)
 
+### Configurações
+
+* `@configure {"table":"table_name"}` - Especifica qual é a tabela do objeto no banco de dados.
+* `@configure {"primary_key":"idtable"}` - Especifica qual é a chave primária da tabela.
+* `@configure {"ignore":true}` - Ignora a propriedade do objeto na construção das queries.
+* `@configure {"ignoreIfNull":true}` - Ignora a propriedade do objeto, apenas se seu valor for nulo.
+
 #### Instanciamento
 O exemplo abaixo deve ser seguido quando formos instanciar apenas um objeto. Pode-se usar perfeitamente as clausulas where do Zend tal como usa-se em seus TableGateways, afinal, o Silk usa o TableGateway do ZF2 para construir seus resultados.
 ```php
