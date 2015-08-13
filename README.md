@@ -19,6 +19,7 @@ em nível de arrays. Todo o resto fica com o Zend - transação de arrays com o 
 * `@configure {"primary_key":"idtable"}` - Especifica qual é a chave primária da tabela.
 * `@configure {"ignore":true}` - Ignora a propriedade do objeto na construção das queries.
 * `@configure {"ignoreIfNull":true}` - Ignora a propriedade do objeto, apenas se nula.
+* `@configure {"alias":"somecolumn"}` -  Especifica o nome da coluna da propriedade na tabela.
 
 #### Instanciamento
 O exemplo abaixo deve ser seguido quando formos instanciar apenas um objeto. Pode-se usar perfeitamente as clausulas where do Zend tal como usa-se em seus TableGateways, afinal, o Silk usa o TableGateway do ZF2 para construir seus resultados.
