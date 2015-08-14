@@ -175,7 +175,7 @@ abstract class AbstractMappableModel implements MappableModelInterface
     private function insert()
     {
         $result = $this->tableGateway->insert(Extractor::extract($this));
-        $this->setId($this->tableGateway->lastInsertValue);
+        $this->setId($this->tableGateway->getLastInsertValue());
         return $result;
     }
 

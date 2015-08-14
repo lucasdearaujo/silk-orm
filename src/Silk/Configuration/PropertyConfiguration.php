@@ -48,7 +48,7 @@ class PropertyConfiguration
     public function __construct(\ReflectionProperty $property)
     {
         $property->setAccessible(true);
-        $c = $property->getDeclaringClass()->getName();
+        $c = $property->class;
         $p = $property->getName();
 
         $config = Reader::getConfig($c, $p);
