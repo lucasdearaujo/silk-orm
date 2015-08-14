@@ -21,10 +21,10 @@ class Extractor
     {
         $array = [];
 
-        foreach((new \ReflectionClass($object))->getProperties() as $property) {
+        foreach ((new \ReflectionClass($object))->getProperties() as $property) {
             $config = new PropertyConfiguration($property, $object);
 
-            if($config->ignore() || $config->shouldIgnoreIfNull())
+            if ($config->ignore() || $config->shouldIgnoreIfNull())
                 continue;
 
             $name = $config->getAlias();
