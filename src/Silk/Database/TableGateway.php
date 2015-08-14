@@ -18,7 +18,7 @@ class TableGateway extends AbstractTableGateway
     {
         $config = Reader::getConfig($object);
 
-        if(!array_key_exists('table', $config))
+        if (!array_key_exists('table', $config))
             throw new NoTableFoundException();
 
         $this->table = $config['table'];
