@@ -9,7 +9,6 @@ use Silk\Exceptions\NoDataFoundException;
 use Silk\Exceptions\NoPrimaryKeyException;
 use Silk\Exchange\Extractor\Extractor;
 use Silk\Exchange\Populator\Populator;
-use Zend\Db\Sql\Select;
 
 /**
  * Class AbstractMappableModel

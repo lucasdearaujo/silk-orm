@@ -14,8 +14,10 @@ class Processor
     private $data;
 
     /**
+     * Processa uma propriedade, selecionando o valor adequado
+     * para a mesma.
      * @param $property
-     * @return bool
+     * @return void
      */
     private function processProperty($property)
     {
@@ -25,13 +27,13 @@ class Processor
         // Ignora a propriedade
         // {"ignore":true}
         if(array_key_exists('ignore', $property['config']))
-            return false;
+            return;
 
         // Ignora a propriedade se o valor for vazio
         // {"ignoreIfNull":true}
         if(array_key_exists('ignoreIfNull', $property['config'])){
             if(empty($property['data']))
-                return false;
+                return;
         }
 
         // Define uma alias para a propriedade

@@ -4,7 +4,6 @@ namespace Silk\Exchange\Populator;
 
 use ReflectionClass;
 use Silk\Configuration\PropertyConfiguration;
-use Silk\Exceptions\NoDataFoundException;
 
 /**
  * Class Populator
@@ -42,7 +41,7 @@ class Populator
      * @param $property
      * @param $array
      */
-    public static function setProperty(&$object, &$property, $array)
+    public static function setProperty(&$object, \ReflectionProperty &$property, $array)
     {
         $property->setAccessible(true);
         $configuration = new PropertyConfiguration($property);
@@ -51,7 +50,7 @@ class Populator
         // Se o campo for do tipo que deve ser ignorado,
         // não meche nele...
         if($configuration->ignore())
-            break;
+            return;
 
         // Verifica se a propriedade tem um alias e busca
         // o valor na array

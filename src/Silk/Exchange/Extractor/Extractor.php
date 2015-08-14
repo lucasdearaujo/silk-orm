@@ -2,7 +2,6 @@
 
 namespace Silk\Exchange\Extractor;
 
-use Collections\Dictionary;
 use PhpDocReader\Reader;
 
 /**
