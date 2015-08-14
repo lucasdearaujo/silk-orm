@@ -45,13 +45,14 @@ class Populator
     {
         $property->setAccessible(true);
         $configuration = new PropertyConfiguration($property, $object);
-        $value = null;
-        $alias = $configuration->getAlias();
 
         // Se o campo for do tipo que deve ser ignorado,
         // não meche nele...
         if($configuration->ignore())
             return;
+
+        $value = null;
+        $alias = $configuration->getAlias();
 
         if(array_key_exists($alias, $array))
             $value = $array[$alias];
