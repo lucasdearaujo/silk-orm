@@ -2,7 +2,7 @@
 
 namespace Silk\Exchange\Extractor;
 
-use PhpDocReader\Reader;
+use Silk\Configuration\PropertyConfiguration;
 
 /**
  * Class Extractor
@@ -13,38 +13,26 @@ use PhpDocReader\Reader;
 class Extractor
 {
     /**
-     * @param $object
-     * @return array
-     * @throws \Collections\Exception\KeyException
-     */
-    private static function map($object)
-    {
-        $properties = [];
-
-        foreach((new \ReflectionClass($object))->getProperties() as $property)
-        {
-            $property->setAccessible(true);
-            $o = $property->getDeclaringClass()->getName();
-            $p = $property->getName();
-
-            $properties[] = [
-                'name'   => $p,
-                'data'   => $property->getValue($object),
-                'config' => Reader::getConfig($o, $p)
-            ];
-        }
-
-        return $properties;
-    }
-
-    /**
      * Extrai as informações existentes em uma classe
      * @param $object
      * @return array
      */
     public static function extract($object)
     {
-        $processor = new Processor();
-        return $processor->process(self::map($object));
+        $array = [];
+
+        foreach((new \ReflectionClass($object))->getProperties() as $property) {
+            $config = new PropertyConfiguration($property, $object);
+
+            if($config->ignore() || $config->shouldIgnoreIfNull())
+                continue;
+
+            $name = $config->getAlias();
+            $data = $config->getValue();
+
+            $array[$name] = $data;
+        }
+
+        return $array;
     }
 }

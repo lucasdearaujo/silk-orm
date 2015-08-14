@@ -3,6 +3,7 @@
 namespace Silk\Test;
 
 use Silk\Exchange\Extractor\Extractor;
+use Silk\Model\AbstractMappableModel;
 
 /**
  * Class Model
@@ -11,7 +12,7 @@ use Silk\Exchange\Extractor\Extractor;
  * @configure {"table":"cad_model"}
  * @configure {"primary_key":"idmodel"}
  */
-class Model
+class Model extends AbstractMappableModel
 {
     /**
      * @configure {"alias":"elemento"}
@@ -27,6 +28,16 @@ class Model
      * @configure {"ignoreIfNull":true}
      */
     private $notIgnored = 123;
+
+    public function getId()
+    {
+        // TODO: Implement getId() method.
+    }
+
+    public function setId($id)
+    {
+        // TODO: Implement setId() method.
+    }
 }
 
 /**

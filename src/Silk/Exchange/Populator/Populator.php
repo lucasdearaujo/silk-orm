@@ -44,9 +44,9 @@ class Populator
     public static function setProperty(&$object, \ReflectionProperty &$property, $array)
     {
         $property->setAccessible(true);
-        $configuration = new PropertyConfiguration($property);
+        $configuration = new PropertyConfiguration($property, $object);
         $value = null;
-        $alias = Processor::getAlias($configuration);
+        $alias = $configuration->getAlias();
 
         // Se o campo for do tipo que deve ser ignorado,
         // não meche nele...

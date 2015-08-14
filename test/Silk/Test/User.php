@@ -16,6 +16,7 @@ class User extends AbstractMappableModel
 {
     /**
      * @var int
+     * @configure {"ignoreIfNull":true}
      */
     private $iduser;
 

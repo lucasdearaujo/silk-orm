@@ -3,6 +3,7 @@
 namespace Silk\Configuration;
 
 use PhpDocReader\Reader;
+use Silk\Model\MappableModelInterface;
 
 /**
  * Class PropertyConfiguration
@@ -44,8 +45,9 @@ class PropertyConfiguration
     /**
      * Constrói uma configuração
      * @param $property
+     * @param $object
      */
-    public function __construct(\ReflectionProperty $property)
+    public function __construct(\ReflectionProperty $property, $object)
     {
         $property->setAccessible(true);
         $c = $property->class;
@@ -54,6 +56,7 @@ class PropertyConfiguration
         $config = Reader::getConfig($c, $p);
 
         $this->setName($property->getName());
+        $this->setValue($property->getValue($object));
 
         if(array_key_exists('alias', $config))
             $this->setAlias($config['alias']);
@@ -88,6 +91,10 @@ class PropertyConfiguration
      */
     public function getValue()
     {
+        if($this->value instanceof MappableModelInterface){
+            return $this->value->getId();
+        }
+
         return $this->value;
     }
 
@@ -127,6 +134,21 @@ class PropertyConfiguration
     }
 
     /**
+     * Verifica se o valor deve ser ignorado.
+     * @return bool
+     */
+    public function shouldIgnoreIfNull(){
+        if($this->ignoreIfNull() && is_null($this->getValue()))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /**
      * Define o parâmetro de ignorar a propriedade
      * @param boolean $ignoreIfNull
      */
@@ -150,7 +172,10 @@ class PropertyConfiguration
      */
     public function getAlias()
     {
-        return $this->alias;
+        if(!empty($this->alias))
+            return $this->alias;
+
+        return $this->name;
     }
 
     /**
