@@ -46,31 +46,15 @@ class Populator
         $property->setAccessible(true);
         $configuration = new PropertyConfiguration($property);
         $value = null;
+        $alias = Processor::getAlias($configuration);
 
         // Se o campo for do tipo que deve ser ignorado,
         // não meche nele...
         if($configuration->ignore())
             return;
 
-        // Verifica se a propriedade tem um alias e busca
-        // o valor na array
-        if($configuration->hasAlias())
-        {
-            $alias = $configuration->getAlias();
-
-            if(array_key_exists($alias, $array))
-                $value = $array[$alias];
-        }
-
-        // Caso não tenha nenhum alias, o script irá procurar
-        // por um valor relacionado com o nome original da propriedade.
-        else
-        {
-            $alias = $configuration->getName();
-
-            if(array_key_exists($alias, $array))
-                $value = $array[$alias];
-        }
+        if(array_key_exists($alias, $array))
+            $value = $array[$alias];
 
         $property->setValue($object, $value);
     }
