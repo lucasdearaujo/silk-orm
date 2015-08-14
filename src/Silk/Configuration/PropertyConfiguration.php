@@ -58,13 +58,13 @@ class PropertyConfiguration
         $this->setName($property->getName());
         $this->setValue($property->getValue($object));
 
-        if(array_key_exists('alias', $config))
+        if (array_key_exists('alias', $config))
             $this->setAlias($config['alias']);
 
-        if(array_key_exists('ignore', $config))
+        if (array_key_exists('ignore', $config))
             $this->setIgnore($config['ignore']);
 
-        if(array_key_exists('ignoreIfNull', $config))
+        if (array_key_exists('ignoreIfNull', $config))
             $this->setIgnoreIfNull($config['ignoreIfNull']);
     }
 
@@ -91,7 +91,7 @@ class PropertyConfiguration
      */
     public function getValue()
     {
-        if($this->value instanceof MappableModelInterface){
+        if ($this->value instanceof MappableModelInterface) {
             return $this->value->getId();
         }
 
@@ -137,12 +137,11 @@ class PropertyConfiguration
      * Verifica se o valor deve ser ignorado.
      * @return bool
      */
-    public function shouldIgnoreIfNull(){
-        if($this->ignoreIfNull() && is_null($this->getValue()))
+    public function shouldIgnoreIfNull() {
+        if ($this->ignoreIfNull() && is_null($this->getValue()))
         {
             return true;
-        }
-        else
+        } else
         {
             return false;
         }
@@ -172,7 +171,7 @@ class PropertyConfiguration
      */
     public function getAlias()
     {
-        if(!empty($this->alias))
+        if (!empty($this->alias))
             return $this->alias;
 
         return $this->name;

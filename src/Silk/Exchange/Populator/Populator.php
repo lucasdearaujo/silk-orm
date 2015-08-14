@@ -27,7 +27,7 @@ class Populator
      */
     public static function populate(&$object, $array)
     {
-        foreach((new ReflectionClass($object))->getProperties() as $property)
+        foreach ((new ReflectionClass($object))->getProperties() as $property)
             self::setProperty($object, $property, $array);
 
         self::afterPopulate($object, $array);
@@ -41,7 +41,7 @@ class Populator
      * @param $property
      * @param $array
      */
-    public static function setProperty(&$object, \ReflectionProperty &$property, $array)
+    public static function setProperty(&$object, \ReflectionProperty & $property, $array)
     {
         $property->setAccessible(true);
         $configuration = new PropertyConfiguration($property, $object);
@@ -50,10 +50,10 @@ class Populator
 
         // Se o campo for do tipo que deve ser ignorado,
         // não meche nele...
-        if($configuration->ignore())
+        if ($configuration->ignore())
             return;
 
-        if(array_key_exists($alias, $array))
+        if (array_key_exists($alias, $array))
             $value = $array[$alias];
 
         $property->setValue($object, $value);
@@ -68,7 +68,7 @@ class Populator
         // Verifica se existe o método que trata os
         // valores após eles terem sido populados.
         // Se tiver, o executa.
-        if(method_exists($object, 'afterPopulate'))
+        if (method_exists($object, 'afterPopulate'))
         {
             call_user_func('afterPopulate', $object, [$array]);
         }

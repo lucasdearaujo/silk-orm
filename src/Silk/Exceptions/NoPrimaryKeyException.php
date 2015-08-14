@@ -9,6 +9,6 @@ namespace Silk\Exceptions;
 class NoPrimaryKeyException extends \Exception
 {
     protected $message = "Não foi definida nenhuma chave primária para seu objeto. ".
-                       "Faça a pesquisa passando um where ao invés de um valor numérico inteiro ".
-                       "no parâmetro do construtor de seu objeto.";
+                        "Faça a pesquisa passando um where ao invés de um valor numérico inteiro ".
+                        "no parâmetro do construtor de seu objeto.";
 }
