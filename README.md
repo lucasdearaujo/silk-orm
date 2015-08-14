@@ -7,6 +7,8 @@ que foi pensado para ser prático, leve, e de fácil configuração. Ele permite
 acessar os dados utilizando o padrão de busca SQL do Zend. Em outras palavras, o papel dele é mapear seus objetos apenas
 em nível de arrays. Todo o resto fica com o Zend - transação de arrays com o banco de dados.
 
+`composer require hamboldt/silk-orm`
+
 ### Como funciona
 
 * [Configure um banco de dados](https://gist.github.com/hamboldt/b873f19576623f06607a)
