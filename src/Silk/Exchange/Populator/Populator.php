@@ -27,8 +27,9 @@ class Populator
      */
     public static function populate(&$object, $array)
     {
-        foreach ((new ReflectionClass($object))->getProperties() as $property)
-            self::setProperty($object, $property, $array);
+        foreach ((new ReflectionClass($object))->getProperties() as $property) {
+                    self::setProperty($object, $property, $array);
+        }
 
         self::afterPopulate($object, $array);
     }
@@ -54,7 +55,7 @@ class Populator
         $value = null;
         $alias = $configuration->getAlias();
 
-        if(array_key_exists($alias, $array))
+        if (array_key_exists($alias, $array))
             $value = $array[$alias];
 
         $property->setValue($object, $value);
