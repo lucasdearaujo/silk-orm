@@ -2,7 +2,6 @@
 
 namespace Silk\Test;
 
-use Silk\Exceptions\NoDataFoundException;
 use Silk\Model\AbstractMappableModel;
 
 /**
@@ -31,8 +30,13 @@ class User extends AbstractMappableModel
     private $password;
 
     /**
-     * @configure {"alias":"idcompany"}
      * @var Company
+     *
+     * Define o campo em que será salva a id do objeto no campo
+     * @configure {"alias":"idcompany"}
+     *
+     * Define o tipo de objeto que será carregado na variávei
+     * @configure {"type":"\\Silk\\Test\\Company"}
      */
     private $company;
 
@@ -90,19 +94,7 @@ class User extends AbstractMappableModel
      */
     public function getCompany()
     {
-        try
-        {
-            $this->company = new Company($this->company);
-
-        }
-        catch(NoDataFoundException $e)
-        {
-            $this->company = new Company();
-        }
-        finally
-        {
-            return $this->company;
-        }
+        return $this->company;
     }
 
     /**

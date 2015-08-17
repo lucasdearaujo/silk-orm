@@ -4,6 +4,7 @@ namespace Silk\Exchange\Populator;
 
 use ReflectionClass;
 use Silk\Configuration\PropertyConfiguration;
+use Silk\Exceptions\NoDataFoundException;
 
 /**
  * Class Populator
@@ -57,6 +58,20 @@ class Populator
 
         if (array_key_exists($alias, $array))
             $value = $array[$alias];
+
+        if(!empty($configuration->getType()))
+        {
+            $type = $configuration->getType();
+
+            try
+            {
+                $value = new $type($value, false);
+            }
+            catch(NoDataFoundException $e)
+            {
+                $value = new $type();
+            }
+        }
 
         $property->setValue($object, $value);
     }

@@ -30,16 +30,29 @@ abstract class AbstractMappableModel implements MappableModelInterface
     private $primaryKey = null;
 
     /**
+     * @var mixed
+     * @configure {"ignore":true}
+     */
+    private $where;
+
+    /**
+     * @var bool
+     * @configure {"ignore":true}
+     */
+    private $lazy;
+
+    /**
      * Verifica qual a estratégia de população adequada de
      * acordo com o parâmetro passado pelo usuário, e também
      * inicia as dependências da classe, bem como a definição
      * de seu TableGateway.
      *
      * @param null $param
+     * @param bool $lazy
      * @throws NoDataFoundException
      * @throws NoPrimaryKeyException
      */
-    public function __construct($param = null)
+    public function __construct($param = null, $lazy = false)
     {
         // Define a chave primária do objeto
         $this->primaryKey = Reader::getConfig($this)['primary_key'];
@@ -47,7 +60,32 @@ abstract class AbstractMappableModel implements MappableModelInterface
         // Constrói o objeto de acesso aos dados.
         $this->tableGateway = new TableGateway($this);
 
-        $this->populate($param);
+        // Define o parâmetro de construção do objeto
+        $this->where = $param;
+
+        // Verifica se deve ser carregado apenas quando
+        // for usado.
+        $this->lazy = $lazy;
+
+        // Se não for lazy load, carrega o objeto
+        if(!$this->lazy)
+            $this->populate($this->where);
+    }
+
+    /**
+     * Esse método mágico será responsável por popular o objeto
+     * caso a opção lazy load tenha sido definida como verdadeira.
+     * Desse modo, os dados serão carregados só quando o objeto for
+     * acessado pela primeira vez.
+     *
+     * @param $name
+     * @param $arg
+     */
+    public function __call($name, $arg)
+    {
+        // Carrega o objeto se por lazy load
+        if($this->lazy)
+            $this->populate($this->where);
     }
 
     /**
@@ -215,7 +253,8 @@ abstract class AbstractMappableModel implements MappableModelInterface
     }
 
     /**
-     * Retorna uma instância da classe que chamou o método.
+     * Retorna uma instância da classe que chamou o método. Será usado
+     * para auxiliar métodos estáticos como select, update e delete.
      *
      * @return MappableModelInterface
      */

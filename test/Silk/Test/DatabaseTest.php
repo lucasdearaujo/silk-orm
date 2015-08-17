@@ -1,6 +1,7 @@
 <?php
 
 namespace Silk\Test;
+
 use Zend\Db\Sql\Select;
 
 /**
@@ -104,6 +105,9 @@ class DatabaseTest extends \PHPUnit_Framework_TestCase
         User::select(['username' => 'lucas']);
     }
 
+    /**
+     * Mapeando um objeto com relação vazia.
+     */
     public function testObjectWithEmptyRelation()
     {
         // Cria uma nova compania para o usuário
@@ -124,5 +128,7 @@ class DatabaseTest extends \PHPUnit_Framework_TestCase
         // Carrega novamente o usuário
         $user = new User($user->getId());
         $this->assertTrue(empty($user->getCompany()->getName()));
+
+        $user->delete();
     }
 }
