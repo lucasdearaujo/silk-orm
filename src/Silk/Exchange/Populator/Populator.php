@@ -29,7 +29,7 @@ class Populator
     public static function populate(&$object, $array)
     {
         foreach ((new ReflectionClass($object))->getProperties() as $property) {
-                    self::setProperty($object, $property, $array);
+            self::setProperty($object, $property, $array);
         }
 
         self::afterPopulate($object, $array);
