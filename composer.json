@@ -20,7 +20,7 @@
     }
   },
   "require": {
-    "hamboldt/php-doc-reader": "v1.0.0",
+    "hamboldt/php-doc-reader": "dev-master",
     "zendframework/zend-db": ">=2.5.1",
     "easyframework/collections": ">=v4.0.0",
     "zendframework/zend-eventmanager": ">=2.5.2"
